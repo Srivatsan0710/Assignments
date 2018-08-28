@@ -21,7 +21,7 @@ public class Hoeffding
 		int index = 0;
 		int coins[][] = new int[1000][10];
 		int count[] = new int[1000];
-		for(int trial = 0; trial < 10000; trial++)
+		for(int trial = 0; trial < 100000; trial++)
 		{
 			int m = 1000000;
 			double c1 = 0;
@@ -53,7 +53,7 @@ public class Hoeffding
 			crand = count[r] / 10;
 
 			m = count[0];
-			for(int i=1; i<1000; i++)
+			for(int i=1; i<10000; i++)
 			{
 				if(count[i] < m)
 					m = count[i];
@@ -64,9 +64,9 @@ public class Hoeffding
 			vavgr += crand;
 			vavg1 += c1;
 		}
-		vavgm = vavgm / 10000;
-		vavgr = vavgr / 10000;
-		vavg1 = vavg1 / 10000;
+		vavgm = vavgm / 100000;
+		vavgr = vavgr / 100000;
+		vavg1 = vavg1 / 100000;
 		System.out.println("Average vmin: " + vavgm);
 		System.out.println("Average vrandom: " + vavgr);
 		System.out.println("Average v1: " + vavg1);
