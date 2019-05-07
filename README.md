@@ -2,7 +2,7 @@
 # Differential Correlation algorithm
 
 function: Differential_Correlation
-  # Number of bootstraps = 1000
+  # Number of bootstraps = B = 1000
   # Input : Gene pairs. n x 2 matrix where rows contain expression of the respective genes from 
   # column 1 and column 2 for the samples in AD, followed by Controls.
   # Output : 2 p-values for the two distributions, 1000 correlation values for resampled values
@@ -28,8 +28,8 @@ function: Differential_Correlation
   till b = 1000
 
   #Calculting p-value for the two distributions
-  p_value_AD = 2 * count_AD / 1000
-  p_value_CTL = 2 * count_CTL / 1000
+  p_value_AD = 2 * count_AD / B ## B = Number of bootstraps
+  p_value_CTL = 2 * count_CTL / B ## B = Number of bootstraps
 
   return p_value_AD, p_value_CTL, cor_resampled_AD, cor_resampled_CTL
 
